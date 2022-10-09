@@ -14,8 +14,13 @@ const ProfileOverview = lazy(() =>
 const ProfileData = lazy(() =>
   import('./pages/Profile/pages/ProfileData/ProfileData')
 );
-const ProfileForm = lazy(() =>
-  import('./pages/Profile/pages/ProfileForm/ProfileForm')
+const ProfileForm = lazy(
+  () =>
+    new Promise((res) =>
+      setTimeout(() =>
+        res(import('./pages/Profile/pages/ProfileForm/ProfileForm'), 2000)
+      )
+    )
 );
 
 export const router = createBrowserRouter([
