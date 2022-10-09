@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { Suspense } from 'react';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import {
@@ -23,7 +23,9 @@ function App() {
         </h1>
       )}
       <div className="flex-fill">
-        <Outlet context={user} />
+        <Suspense>
+          <Outlet context={{ user }} />
+        </Suspense>
       </div>
       <Footer />
       <ScrollRestoration />

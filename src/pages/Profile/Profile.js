@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import {
   NavLink,
   Outlet,
@@ -34,7 +34,9 @@ export default function Profile() {
         <ul>
           {recipes && recipes.map((r) => <li key={r._id}>{r.title}</li>)}{' '}
         </ul>
-        <Outlet />
+        <Suspense fallback={<small>Chargement</small>}>
+          <Outlet />
+        </Suspense>
       </div>
     </>
   );
